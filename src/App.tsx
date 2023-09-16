@@ -1,16 +1,9 @@
-import React from 'react';
-import './App.css';
-
+import React from "react";
+import "./input.css";
 function App() {
   return (
     <div>
-     
-        <h1 className="text-8xl font-serif underline">
-      Hello world!
-</h1>
-        
-      
-     
+      <p className="text-4xl font-mono  underline">Hello world!</p>
     </div>
   );
 }
