@@ -1,14 +1,26 @@
 import React from "react";
 import "./input.css";
 import { faker } from "@faker-js/faker";
+import RestartButton from "./components/RestartButton";
+import Results from "./components/Results";
 
 const words = faker.word.words(20);
 console.log(words);
 const App = () => {
   return (
     <>
-      <CountdownTimer timeLeft={30} />
+      <CountdownTimer timeLeft={60} />
       <GeneratedWords words={words} />
+      <RestartButton
+        className={"mx-auto mt-10 text-slate-500"}
+        onRestart={() => null}
+      />
+      <Results
+        className="mt-10"
+        errors={10}
+        accuracyPercentage={100}
+        total={200}
+      />
     </>
   );
 };
