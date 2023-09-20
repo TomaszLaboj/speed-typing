@@ -1,9 +1,8 @@
-import React from "react";
-import "./input.css";
 import { faker } from "@faker-js/faker";
 import RestartButton from "./components/RestartButton";
 import Results from "./components/Results";
 import UserTypings from "./components/UserTypings";
+import "./input.css";
 
 const words = faker.word.words(20);
 console.log(words);
