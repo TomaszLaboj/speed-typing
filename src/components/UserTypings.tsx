@@ -2,9 +2,11 @@ import Caret from "./Caret";
 
 const UserTypings = ({
   userInput,
+  words,
   className,
 }: {
   userInput: string;
+  words: string;
   className: string;
 }) => {
   const typedCharacter = userInput.split("");
@@ -12,15 +14,40 @@ const UserTypings = ({
   return (
     <div className={className}>
       {typedCharacter.map((char, index) => {
-        return <Character letter={char} key={`${char}_${index}`} />;
+        return (
+          <Character
+            actual={char}
+            key={`${char}_${index}`}
+            expected={words[index]}
+          />
+        );
       })}
       <Caret />
     </div>
   );
 };
 
-const Character = ({ letter }: { letter: string }) => {
-  return <span className="  text-primary-400">{letter}</span>;
+const Character = ({
+  actual,
+  expected,
+}: {
+  actual: string;
+  expected: string;
+}) => {
+  const isCorrect = actual === expected;
+  const iswhiteSpace = expected === " ";
+
+  return (
+    <span
+      className={cn({
+        "text-red-500": !isCorrect && !iswhiteSpace,
+        " text-primary-400": isCorrect && !iswhiteSpace,
+        "bg-red-500/50": !isCorrect && iswhiteSpace,
+      })}
+    >
+      {expected}
+    </span>
+  );
 };
 
 export default UserTypings;

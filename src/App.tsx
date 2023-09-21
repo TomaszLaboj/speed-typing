@@ -3,16 +3,20 @@ import RestartButton from "./components/RestartButton";
 import Results from "./components/Results";
 import UserTypings from "./components/UserTypings";
 import "./input.css";
+import useEngine from "./hooks/useEngine";
 
-const words = faker.word.words(20);
-console.log(words);
 const App = () => {
+  const { state, words, timeLeft, typed } = useEngine();
   return (
     <>
-      <CountdownTimer timeLeft={60} />
+      <CountdownTimer timeLeft={timeLeft} />
       <div className="relative max-w-xl mt-3 text-3xl leading-relaxed break-all">
         <GeneratedWords words={words} />
-        <UserTypings className="absolute inset-0" userInput={"test"} />
+        <UserTypings
+          className="absolute inset-0"
+          userInput={typed}
+          words={words}
+        />
       </div>
       <RestartButton
         className={"mx-auto mt-10 text-slate-500"}
