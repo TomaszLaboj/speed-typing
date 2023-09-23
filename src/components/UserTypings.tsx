@@ -1,5 +1,5 @@
 import Caret from "./Caret";
-
+import cn from "classnames";
 const UserTypings = ({
   userInput,
   words,
