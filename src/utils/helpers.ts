@@ -11,7 +11,7 @@ export const countErrors = (actual: string, expected: string) => {
       errors = errors + 1;
     }
     return errors;
-  });
+  }, 0);
 };
 
 export const calculateAccuracyPercentage = (errors: number, total: number) => {
